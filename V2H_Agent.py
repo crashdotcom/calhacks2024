@@ -2,6 +2,7 @@
 
 # actually: what this process is I think...is I will try to do the uh. call insurance stuff bc it's lowk just copying that guy's code
 
+from typing import Type
 from uagents import Agent, Context, Bureau
 from uagents.experimental.dialogues import Dialogue, Edge, Node
 
@@ -69,7 +70,6 @@ start_interaction = Edge(
     parent = None,
     child = init_state
 )
-
 
 request_success = Edge(
     name = "request_success",
@@ -149,3 +149,5 @@ class VapiDialogue(Dialogue):
                 conclusion
             ]
         )
+
+    def on_init_session(self, model: Type[Model]):
